@@ -46,6 +46,9 @@ object Versions {
 
     //Fragment
     const val fragmentKtx = "1.5.5"
+
+    //Paging3
+    const val paging3 = "3.1.1"
 }
 
 object Design {
@@ -98,4 +101,8 @@ object NavigationComponent {
 
 object Fragment {
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+}
+
+object Paging {
+    const val paging3 = "androidx.paging:paging-runtime:${Versions.paging3}"
 }

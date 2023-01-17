@@ -74,8 +74,13 @@ dependencies {
     implementation NavigationComponent.navigationFragment
     implementation NavigationComponent.navigationUi
 
+    //Paging
+    implementation Paging.paging3
+
     //Test
     testImplementation TestImpl.junit
     androidTestImplementation TestImpl.runner
     androidTestImplementation TestImpl.espresso
+
+
 }
