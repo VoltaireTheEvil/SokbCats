@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SokbCats</string>
+    <string name="item_catslist_to_favorite_btn_text">В избранное</string>
 </resources>
