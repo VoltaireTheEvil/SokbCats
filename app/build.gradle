@@ -19,6 +19,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("catsApi.properties").newDataInputStream())
+        def apiKey = properties.getProperty("x-api-key")
+        it.buildConfigField "String", "CATS_API_KEY", apiKey
+    }
+
     buildFeatures {
         viewBinding true
     }
@@ -57,6 +64,7 @@ dependencies {
 
     //Dagger2
     implementation Dagger.dagger
+    implementation 'androidx.core:core-ktx:+'
     kapt Dagger.daggerCompiler
 
     //Room
@@ -76,6 +84,11 @@ dependencies {
 
     //Paging
     implementation Paging.paging3
+
+    //Retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.converterGson
+    implementation Retrofit.loggingInterceptor
 
     //Test
     testImplementation TestImpl.junit

@@ -49,6 +49,11 @@ object Versions {
 
     //Paging3
     const val paging3 = "3.1.1"
+
+    //Retrofit
+    const val retrofit = "2.9.0"
+    const val converterGson = "2.9.0"
+    const val interceptor = "4.10.0"
 }
 
 object Design {
@@ -105,4 +110,11 @@ object Fragment {
 
 object Paging {
     const val paging3 = "androidx.paging:paging-runtime:${Versions.paging3}"
+}
+
+object Retrofit {
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 }
