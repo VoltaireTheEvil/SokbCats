@@ -16,14 +16,16 @@ class RetrofitCatsRepositoryImpl @Inject constructor(
     private val dispatchersProvider: DispatchersProvider
 ) : CatsRepository {
 
-    override fun getPagedCats(): Flow<PagingData<Cat>> =
-        Pager(
+    override fun getPagedCats(): Flow<PagingData<Cat>> {
+
+        return Pager(
             config = PagingConfig(
                 pageSize = DEFAULT_LIMIT,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { TODO()}
+            pagingSourceFactory = { CatsPagingSource(::getCats) }
         ).flow
+    }
 
     private suspend fun getCats(): List<Cat> =
         withContext(dispatchersProvider.io()) {
