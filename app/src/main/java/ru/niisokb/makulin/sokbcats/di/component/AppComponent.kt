@@ -4,9 +4,10 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import ru.niisokb.makulin.sokbcats.di.annotations.CatApiKeyQualifier
+import ru.niisokb.makulin.sokbcats.di.modules.DispatchersModule
 import ru.niisokb.makulin.sokbcats.di.modules.NetworkModule
 
-@Component(modules = [NetworkModule::class])
+@Component(modules = [NetworkModule::class, DispatchersModule::class])
 interface AppComponent {
 
     @Component.Builder

@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 import ru.niisokb.makulin.sokbcats.model.Cat
 
 interface CatsRepository {
-    fun getCats(): Flow<PagingData<Cat>>
+    fun getPagedCats(): Flow<PagingData<Cat>>
 }
