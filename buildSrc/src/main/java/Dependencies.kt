@@ -26,6 +26,7 @@ object Versions {
 
     //Coil
     const val coil = "2.2.2"
+    const val coilGif = "2.2.2"
 
     //Room
     const val roomKtx = "2.5.0"
@@ -77,6 +78,7 @@ object Dagger {
 
 object Coil {
     const val coil = "io.coil-kt:coil:${Versions.coil}"
+    const val coilGif = "io.coil-kt:coil-gif:${Versions.coilGif}"
 }
 
 object Room {

@@ -1,7 +1,6 @@
 package ru.niisokb.makulin.sokbcats
 
 
-
 /**
  * Instrumented test, which will execute on an Android device.
  *

@@ -74,6 +74,7 @@ dependencies {
 
     //Coil
     implementation Coil.coil
+    implementation Coil.coilGif
 
     //ViewBinding
     implementation ViewBinding.viewBinding
