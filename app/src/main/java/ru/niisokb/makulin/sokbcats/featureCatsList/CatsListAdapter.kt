@@ -9,6 +9,7 @@ import coil.load
 import ru.niisokb.makulin.sokbcats.R
 import ru.niisokb.makulin.sokbcats.databinding.ItemCatslistRecyclerBinding
 import ru.niisokb.makulin.sokbcats.model.Cat
+import ru.niisokb.makulin.sokbcats.utils.ui.CatsDiffUtilsCallback
 
 class CatsListAdapter(
     private val onSetFavorite: (Cat) -> Unit
@@ -56,12 +57,3 @@ class CatsListAdapter(
 
 }
 
-class CatsDiffUtilsCallback : DiffUtil.ItemCallback<Cat>() {
-    override fun areItemsTheSame(oldItem: Cat, newItem: Cat): Boolean {
-        return oldItem.id == newItem.id
-    }
-
-    override fun areContentsTheSame(oldItem: Cat, newItem: Cat): Boolean {
-        return oldItem == newItem
-    }
-}
