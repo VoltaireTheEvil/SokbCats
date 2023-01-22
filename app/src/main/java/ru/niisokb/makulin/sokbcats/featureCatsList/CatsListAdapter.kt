@@ -10,7 +10,9 @@ import ru.niisokb.makulin.sokbcats.R
 import ru.niisokb.makulin.sokbcats.databinding.ItemCatslistRecyclerBinding
 import ru.niisokb.makulin.sokbcats.model.Cat
 
-class CatsListAdapter :
+class CatsListAdapter(
+    private val onSetFavorite: (Cat) -> Unit
+) :
     PagingDataAdapter<Cat, CatsListAdapter.ViewHolder>(CatsDiffUtilsCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -33,8 +35,14 @@ class CatsListAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(cat: Cat?) {
-            if (cat != null && cat.imageUrl.isNotBlank()) {
-                loadImage(url = cat.imageUrl)
+            if (cat != null) {
+                if (cat.imageUrl.isNotBlank()) {
+                    loadImage(url = cat.imageUrl)
+                }
+                binding.btnItemToFavorite.setOnClickListener {
+                    onSetFavorite(cat)
+                }
+
             }
         }
 

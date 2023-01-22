@@ -16,8 +16,8 @@ data class CatEntity(
     val imageUrl: String,
     @ColumnInfo(name = "created_at")
     val createdAt: Date,
-    @ColumnInfo(name = "edited_at")
-    val editedAt: Date
+    @ColumnInfo(name = "updated_at")
+    val updatedAt: Date
 ) {
     fun toCat(): Cat =
         Cat(
