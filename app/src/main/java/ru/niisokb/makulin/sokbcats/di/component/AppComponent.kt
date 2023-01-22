@@ -5,9 +5,13 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.niisokb.makulin.sokbcats.di.annotations.CatApiKeyQualifier
 import ru.niisokb.makulin.sokbcats.di.modules.AppModule
+import ru.niisokb.makulin.sokbcats.featureCatsList.CatsListFragment
+import javax.inject.Singleton
 
-@Component(modules = [AppModule::class])
+@[Singleton Component(modules = [AppModule::class])]
 interface AppComponent {
+
+    fun inject(fragment: CatsListFragment)
 
     @Component.Builder
     interface Builder {
