@@ -15,8 +15,7 @@ class CatsListViewModel(
     private val catsRepository: CatsRepository
 ) : ViewModel() {
 
-    val catsFlow: Flow<PagingData<Cat>> = catsRepository.getPagedCats()
-        .cachedIn(viewModelScope)
+    val catsFlow: Flow<PagingData<Cat>> = catsRepository.getPagedCats().cachedIn(viewModelScope)
 
     @Suppress("UNCHECKED_CAST")
     class Factory @Inject constructor(

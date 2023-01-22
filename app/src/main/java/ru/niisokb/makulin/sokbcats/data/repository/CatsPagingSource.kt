@@ -13,12 +13,13 @@ class CatsPagingSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Cat> {
+        val paramsIndex = params.key ?: 0
         return try {
             val cats = catsLoader.invoke()
             return LoadResult.Page(
                 data = cats,
                 prevKey = null,
-                nextKey = null
+                nextKey = paramsIndex + 1
             )
         } catch (e: Exception) {
             LoadResult.Error(

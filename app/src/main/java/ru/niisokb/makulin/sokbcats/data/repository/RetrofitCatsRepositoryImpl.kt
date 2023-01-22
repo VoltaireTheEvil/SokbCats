@@ -21,7 +21,8 @@ class RetrofitCatsRepositoryImpl @Inject constructor(
         return Pager(
             config = PagingConfig(
                 pageSize = DEFAULT_LIMIT,
-                enablePlaceholders = false
+                enablePlaceholders = false,
+                initialLoadSize = DEFAULT_LIMIT
             ),
             pagingSourceFactory = { CatsPagingSource(::getCats) }
         ).flow
