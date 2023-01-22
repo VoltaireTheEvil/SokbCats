@@ -6,9 +6,13 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(includes = [NetworkModule::class, DispatchersModule::class, RepositoryModule::class])
+@Module(
+    includes = [NetworkModule::class, DispatchersModule::class, RepositoryModule::class,
+        DatabaseModule::class]
+)
 class AppModule {
 
     @[Provides Singleton]
     fun context(application: Application): Context = application.applicationContext
+
 }

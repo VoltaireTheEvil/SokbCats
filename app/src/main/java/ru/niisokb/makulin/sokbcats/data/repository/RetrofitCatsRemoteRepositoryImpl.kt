@@ -11,10 +11,10 @@ import ru.niisokb.makulin.sokbcats.model.Cat
 import ru.niisokb.makulin.sokbcats.utils.dispatchers.DispatchersProvider
 import javax.inject.Inject
 
-class RetrofitCatsRepositoryImpl @Inject constructor(
+class RetrofitCatsRemoteRepositoryImpl @Inject constructor(
     private val apiService: CatsApiService,
     private val dispatchersProvider: DispatchersProvider
-) : CatsRepository {
+) : CatsRemoteRepository {
 
     override fun getPagedCats(): Flow<PagingData<Cat>> {
 

@@ -4,6 +4,6 @@ import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
 import ru.niisokb.makulin.sokbcats.model.Cat
 
-interface CatsRepository {
+interface CatsRemoteRepository {
     fun getPagedCats(): Flow<PagingData<Cat>>
 }
