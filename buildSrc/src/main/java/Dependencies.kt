@@ -26,6 +26,7 @@ object Versions {
 
     //Coil
     const val coil = "2.2.2"
+    const val coilGif = "2.2.2"
 
     //Room
     const val roomKtx = "2.5.0"
@@ -46,6 +47,14 @@ object Versions {
 
     //Fragment
     const val fragmentKtx = "1.5.5"
+
+    //Paging3
+    const val paging3 = "3.1.1"
+
+    //Retrofit
+    const val retrofit = "2.9.0"
+    const val converterGson = "2.9.0"
+    const val interceptor = "4.10.0"
 }
 
 object Design {
@@ -69,6 +78,7 @@ object Dagger {
 
 object Coil {
     const val coil = "io.coil-kt:coil:${Versions.coil}"
+    const val coilGif = "io.coil-kt:coil-gif:${Versions.coilGif}"
 }
 
 object Room {
@@ -98,4 +108,15 @@ object NavigationComponent {
 
 object Fragment {
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+}
+
+object Paging {
+    const val paging3 = "androidx.paging:paging-runtime:${Versions.paging3}"
+}
+
+object Retrofit {
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.converterGson}"
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
 }
