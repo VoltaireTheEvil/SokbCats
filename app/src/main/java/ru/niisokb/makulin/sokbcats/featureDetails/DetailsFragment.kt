@@ -1,5 +1,6 @@
 package ru.niisokb.makulin.sokbcats.featureDetails
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,7 +10,9 @@ import coil.load
 import ru.niisokb.makulin.sokbcats.R
 import ru.niisokb.makulin.sokbcats.databinding.FragmentDetailsBinding
 import ru.niisokb.makulin.sokbcats.model.Cat
+import ru.niisokb.makulin.sokbcats.utils.di.appComponent
 import ru.niisokb.makulin.sokbcats.utils.navigation.navigationData
+import javax.inject.Inject
 
 class DetailsFragment : Fragment(R.layout.fragment_details) {
 
@@ -17,7 +20,17 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     private var cat: Cat? = null
 
-    private val detailsViewModel: DetailsViewModel by viewModels()
+    @Inject
+    lateinit var detailsViewModelFactory: dagger.Lazy<DetailsViewModel.Factory>
+
+    private val detailsViewModel: DetailsViewModel by viewModels<DetailsViewModel> {
+        detailsViewModelFactory.get()
+    }
+
+    override fun onAttach(context: Context) {
+        context.appComponent.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,10 +40,12 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     private fun initViews() {
         with(binding) {
-            imageViewCatImg.load(cat?.imageUrl)
-            textViewIdText.text = cat?.id
-            btnDownloadImage.setOnClickListener {
-                //TODO download
+            if (cat != null) {
+                imageViewCatImg.load(cat!!.imageUrl)
+                textViewIdText.text = cat!!.id
+                btnDownloadImage.setOnClickListener {
+                    detailsViewModel.downloadImage(cat!!.imageUrl)
+                }
             }
         }
     }
