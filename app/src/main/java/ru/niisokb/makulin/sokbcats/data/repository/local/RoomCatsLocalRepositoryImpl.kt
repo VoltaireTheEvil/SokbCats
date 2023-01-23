@@ -1,4 +1,4 @@
-package ru.niisokb.makulin.sokbcats.data.repository
+package ru.niisokb.makulin.sokbcats.data.repository.local
 
 import kotlinx.coroutines.withContext
 import ru.niisokb.makulin.sokbcats.data.room.CatDao
