@@ -20,5 +20,10 @@
         <item name="cardElevation">@dimen/card_elevation</item>
     </style>
 
+    <style name="common_text">
+        <item name="android:textSize">@dimen/common_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 
 </resources>
