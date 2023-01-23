@@ -15,6 +15,7 @@ import ru.niisokb.makulin.sokbcats.R
 import ru.niisokb.makulin.sokbcats.databinding.FragmentCatslistBinding
 import ru.niisokb.makulin.sokbcats.model.Cat
 import ru.niisokb.makulin.sokbcats.utils.di.appComponent
+import ru.niisokb.makulin.sokbcats.utils.navigation.navigate
 import ru.niisokb.makulin.sokbcats.utils.ui.makeSnackbar
 import javax.inject.Inject
 
@@ -30,7 +31,10 @@ class CatsListFragment : Fragment(R.layout.fragment_catslist) {
     }
 
     private val adapter: CatsListAdapter by lazy {
-        CatsListAdapter(::addToFavorite)
+        CatsListAdapter(
+            ::addToFavorite,
+            ::navigateToDetails
+        )
     }
 
     companion object {
@@ -85,6 +89,10 @@ class CatsListFragment : Fragment(R.layout.fragment_catslist) {
 
     private fun addToFavorite(cat: Cat) {
         catsListViewModel.addToFavorite(cat)
+    }
+
+    private fun navigateToDetails(cat: Cat) {
+        navigate(R.id.action_catsListFragment_to_detailsFragment, cat)
     }
 
 }

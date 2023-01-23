@@ -14,6 +14,7 @@ import ru.niisokb.makulin.sokbcats.R
 import ru.niisokb.makulin.sokbcats.databinding.FragmentFavoriteBinding
 import ru.niisokb.makulin.sokbcats.model.Cat
 import ru.niisokb.makulin.sokbcats.utils.di.appComponent
+import ru.niisokb.makulin.sokbcats.utils.navigation.navigate
 import ru.niisokb.makulin.sokbcats.utils.ui.makeSnackbar
 import javax.inject.Inject
 
@@ -29,7 +30,10 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
     }
 
     private val adapter: FavoriteAdapter by lazy {
-        FavoriteAdapter(onDeleteCat = ::deleteFromFavorite)
+        FavoriteAdapter(
+            onDeleteCat = ::deleteFromFavorite,
+            navigateToDetails = ::navigateToDetails
+        )
     }
 
     companion object {
@@ -82,4 +86,9 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
     private fun deleteFromFavorite(cat: Cat) {
         favoriteViewModel.deleteCat(cat)
     }
+
+    private fun navigateToDetails(cat: Cat) {
+        navigate(R.id.action_favoriteFragment_to_detailsFragment, cat)
+    }
+
 }

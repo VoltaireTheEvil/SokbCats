@@ -3,7 +3,6 @@ package ru.niisokb.makulin.sokbcats.featureCatsList
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import ru.niisokb.makulin.sokbcats.R
@@ -12,7 +11,8 @@ import ru.niisokb.makulin.sokbcats.model.Cat
 import ru.niisokb.makulin.sokbcats.utils.ui.CatsDiffUtilsCallback
 
 class CatsListAdapter(
-    private val onSetFavorite: (Cat) -> Unit
+    private val onSetFavorite: (Cat) -> Unit,
+    private val navigateToDetails: (Cat) -> Unit
 ) :
     PagingDataAdapter<Cat, CatsListAdapter.ViewHolder>(CatsDiffUtilsCallback()) {
 
@@ -40,10 +40,18 @@ class CatsListAdapter(
                 if (cat.imageUrl.isNotBlank()) {
                     loadImage(url = cat.imageUrl)
                 }
-                binding.btnItemToFavorite.setOnClickListener {
+                setupListeners(cat)
+            }
+        }
+
+        private fun setupListeners(cat: Cat) {
+            with(binding) {
+                btnItemToFavorite.setOnClickListener {
                     onSetFavorite(cat)
                 }
-
+                root.setOnClickListener {
+                    navigateToDetails(cat)
+                }
             }
         }
 
