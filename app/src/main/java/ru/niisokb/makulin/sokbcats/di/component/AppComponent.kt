@@ -6,6 +6,7 @@ import dagger.Component
 import ru.niisokb.makulin.sokbcats.di.annotations.CatApiKeyQualifier
 import ru.niisokb.makulin.sokbcats.di.modules.AppModule
 import ru.niisokb.makulin.sokbcats.featureCatsList.CatsListFragment
+import ru.niisokb.makulin.sokbcats.featureDetails.DetailsFragment
 import ru.niisokb.makulin.sokbcats.featureFavorite.FavoriteFragment
 import javax.inject.Singleton
 
@@ -15,6 +16,8 @@ interface AppComponent {
     fun inject(fragment: CatsListFragment)
 
     fun inject(fragment: FavoriteFragment)
+
+    fun inject(fragment: DetailsFragment)
 
     @Component.Builder
     interface Builder {

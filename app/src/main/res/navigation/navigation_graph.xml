@@ -11,15 +11,26 @@
         <action
             android:id="@+id/action_catsListFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_catsListFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="ru.niisokb.makulin.sokbcats.featureFavorite.FavoriteFragment"
-        android:label="Favorite" >
+        android:label="Favorite">
         <action
             android:id="@+id/action_favoriteFragment_to_catsListFragment"
             app:destination="@id/catsListFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="ru.niisokb.makulin.sokbcats.featureDetails.DetailsFragment"
+        android:label="Details" />
 
 </navigation>

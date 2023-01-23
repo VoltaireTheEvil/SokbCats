@@ -11,7 +11,8 @@ import ru.niisokb.makulin.sokbcats.model.Cat
 import ru.niisokb.makulin.sokbcats.utils.ui.CatsDiffUtilsCallback
 
 class FavoriteAdapter(
-    private val onDeleteCat: (Cat) -> Unit
+    private val onDeleteCat: (Cat) -> Unit,
+    private val navigateToDetails: (Cat) -> Unit
 ) : ListAdapter<Cat, FavoriteAdapter.ViewHolder>(CatsDiffUtilsCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,8 +37,17 @@ class FavoriteAdapter(
             if (cat.imageUrl.isNotBlank()) {
                 loadImage(url = cat.imageUrl)
             }
-            binding.btnItemDelete.setOnClickListener {
-                onDeleteCat(cat)
+            setupListeners(cat)
+        }
+
+        private fun setupListeners(cat: Cat) {
+            with(binding) {
+                btnItemDelete.setOnClickListener {
+                    onDeleteCat(cat)
+                }
+                root.setOnClickListener {
+                    navigateToDetails(cat)
+                }
             }
         }
 
