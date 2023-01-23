@@ -1,4 +1,4 @@
-package ru.niisokb.makulin.sokbcats.data.repository
+package ru.niisokb.makulin.sokbcats.data.repository.remote
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

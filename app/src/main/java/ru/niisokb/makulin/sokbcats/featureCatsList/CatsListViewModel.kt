@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import ru.niisokb.makulin.sokbcats.data.repository.CatsLocalRepository
-import ru.niisokb.makulin.sokbcats.data.repository.CatsRemoteRepository
+import ru.niisokb.makulin.sokbcats.data.repository.local.CatsLocalRepository
+import ru.niisokb.makulin.sokbcats.data.repository.remote.CatsRemoteRepository
 import ru.niisokb.makulin.sokbcats.model.Cat
 import javax.inject.Inject
 import javax.inject.Provider

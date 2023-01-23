@@ -1,4 +1,4 @@
-package ru.niisokb.makulin.sokbcats.data.repository
+package ru.niisokb.makulin.sokbcats.data.repository.local
 
 import ru.niisokb.makulin.sokbcats.model.Cat
 
