@@ -5,4 +5,5 @@
     <string name="menu_home_title">На главную</string>
     <string name="menu_favorite_title">Избранное</string>
     <string name="fragment_details_id_text_label_text">ID: </string>
+    <string name="fragment_details_download_btn_text">Скачать</string>
 </resources>
